@@ -5,26 +5,27 @@
 html {
     background: url(img/bg.jpeg) no-repeat;
     background-size: cover;
-    background-position: initial;
-    background-position-y: -150%;
+    /* background-position: initial; */
+    /* background-position-y: -150%; */
     min-height: 1vh;
     min-width: 1vw;
     width: 100%;
     height: auto;
     position: fixed;
     background-color: rgb(255, 85, 0);
-
 }
 
 body {
     font-family: 'Press Start 2P', cursive;
+    margin-top: 250px;
+    padding: 50px;
 }
 
 header {
     display: flex;
 }
 
-img {
+header img {
     /* Set rules to fill background */
     min-height: 15%;
     min-width: 1vw;
@@ -36,6 +37,32 @@ img {
     /* Set up positioning */
     position: fixed;
     top: 0;
-    left: 10;
-  }
-  
+    left: 0;
+    padding: 20px;
+}
+
+main {
+    padding: 10px;
+}
+
+div {
+    display: flex;
+    padding: 10px;
+}
+
+.answers {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+    "a b"
+    "c d";
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+.answers button {
+    height: 50px;
+    margin: 10px;
+    width: auto;
+}
