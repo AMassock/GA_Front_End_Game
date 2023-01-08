@@ -54,6 +54,10 @@ div {
     padding: 10px;
 }
 
+.hello {
+    display: none;
+}
+
 .questions {
     display: none;
 }
