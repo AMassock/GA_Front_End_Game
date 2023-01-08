@@ -5,8 +5,8 @@
 html {
     background: url(img/bg.jpeg) no-repeat;
     background-size: auto;
-    background-size: cover;
-    background-position: left 100% top 300px;
+    background-size: 400px;
+    background-position: left 100% top 650px;
     min-height: 1vh;
     min-width: 1vw;
     width: 100%;
@@ -29,6 +29,7 @@ header img {
     /* Set rules to fill background */
     min-height: 15%;
     min-width: 1vw;
+    max-width: 400px;
       
     /* Set up proportionate scaling */
     width: 90%;
