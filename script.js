@@ -58,11 +58,12 @@ let myQuestions = [{
 function returnUsr() {
     usr = document.querySelector('input').value;
     localStorage.setItem('input',usr)
-    console.log(usr);
+    // console.log(usr);
 }
 
 let cont = document.getElementById('continue');
 let iter = 0
+
 cont.addEventListener('click', function(e) {
     e.preventDefault();
     createQuestion(iter++)
@@ -70,27 +71,45 @@ cont.addEventListener('click', function(e) {
 
 
 function createQuestion() {
-    let btns = document.getElementsByClassName('answers');
-    let childBtns = btns[0].children;
-
-
     
     for(let i = iter; i < myQuestions.length; i++) {
-        return document.getElementById('question').innerHTML = (myQuestions[i].question);
+       let question = document.getElementById('question').innerHTML = (myQuestions[i].question);
+       createAnswers(question);
+       return question
     }
 }
 
-function createAnswers() {
-    for(const [key, value] of Object.entries(myQuestions[i].answers)) {
-        let answer = value;
-        // console.log(answer);
-        for(let j = 0; j < childBtns.length; j++) {
-            return childBtns[j].innerHTML = answer;
-        }
-        // btns.forEach(element => console.log(element));
-        
-        // console.log(childBtns);
+function createAnswers(question) {
+    let btns = document.getElementsByClassName('answers');
+    let ans = myQuestions[iter].answers
+    
+    for(const [key, value] of Object.entries(ans)) {
+        console.log(`${key} ${value}`);
     }
+    // let childBtns = btns[0].children;
+    // // console.log(childBtns);
+
+    // for(let i = 0; i < childBtns.length; i++) {
+    //     // let childBtns = btns[i].children;
+    //     console.log(childBtns);
+
+    //         for(let j = 0; j < childBtns.length; j++) {
+    //             for(const [key, value] of Object.entries(myQuestions[j].answers)) {
+    //                 let answer = value;
+                    
+    //                 while(j <= 4) {
+    //                     childBtns[j].innerHTML = answer;
+    //                     console.log(answer);
+    //                     j++
+    //                 }
+                
+    //         }
+    // }
+
+    //     // btns.forEach(element => console.log(element));
+        
+    //     // console.log(childBtns);
+    // }
 }
 
 
