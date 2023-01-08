@@ -22,6 +22,7 @@ startBtn.addEventListener('click', function(e){
     questSection.style.display = 'block';
     ans.style.display = 'grid';
     subBtn.style.display = 'inline';
+    createQuestion();
 });
 
 reset.addEventListener('click', function(e) {
@@ -42,6 +43,16 @@ let myQuestions = [{
         d: "Who's Ash?"
     },
     correct: 'a'
+}, {
+    question: "what time is it",
+    answers:{
+        a: "1"
+    }
+}, {
+    question: "when",
+    answers: {
+        a: "nope"
+    }
 }]
 
 function returnUsr() {
@@ -49,3 +60,41 @@ function returnUsr() {
     localStorage.setItem('input',usr)
     console.log(usr);
 }
+
+let cont = document.getElementById('continue');
+let iter = 0
+cont.addEventListener('click', function(e) {
+    e.preventDefault();
+    createQuestion(iter++)
+});
+
+
+function createQuestion() {
+    let btns = document.getElementsByClassName('answers');
+    let childBtns = btns[0].children;
+
+
+    
+    for(let i = iter; i < myQuestions.length; i++) {
+        return document.getElementById('question').innerHTML = (myQuestions[i].question);
+    }
+}
+
+function createAnswers() {
+    for(const [key, value] of Object.entries(myQuestions[i].answers)) {
+        let answer = value;
+        // console.log(answer);
+        for(let j = 0; j < childBtns.length; j++) {
+            return childBtns[j].innerHTML = answer;
+        }
+        // btns.forEach(element => console.log(element));
+        
+        // console.log(childBtns);
+    }
+}
+
+
+// Thought process on questions
+// Create function to replace question and answer text
+// Create function that moves to the next question in the list
+// and replaces text (call back to replace function)

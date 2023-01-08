@@ -17,8 +17,8 @@ html {
 
 body {
     font-family: 'Press Start 2P', cursive;
-    margin-top: 250px;
-    padding: 50px;
+    margin-top: 415px;
+    /* padding: 50px; */
 }
 
 header {
@@ -41,12 +41,14 @@ header img {
     padding: 20px;
 }
 
-form {
-    display: inline-block;
-}
-
 main {
     padding: 10px;
+    min-width: 1vw;
+    margin: 1px;
+}
+
+form {
+    display: inline-block;
 }
 
 div {
