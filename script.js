@@ -81,10 +81,22 @@ function createQuestion() {
 
 function createAnswers(question) {
     let btns = document.getElementsByClassName('answers');
+    let childBtns = btns[0].children;
     let ans = myQuestions[iter].answers
+
+    for(let i = 0; i < childBtns.length; i++) {
+        let btn = childBtns[i]
+        // console.log(btn);
+        // btn.forEach()
+    }
     
     for(const [key, value] of Object.entries(ans)) {
-        console.log(`${key} ${value}`);
+        let opts = [value];
+        console.log(opts.length);
+        // btn.forEach(element) => {
+        // console.log(typeof opts, opts);
+        // Array.prototype.forEach.call(ans, (x) => console.log(typeof x))
+
     }
     // let childBtns = btns[0].children;
     // // console.log(childBtns);

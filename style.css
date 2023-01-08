@@ -4,9 +4,9 @@
 
 html {
     background: url(img/bg.jpeg) no-repeat;
+    background-size: auto;
     background-size: cover;
-    /* background-position: initial; */
-    /* background-position-y: -150%; */
+    background-position: left 100% top 300px;
     min-height: 1vh;
     min-width: 1vw;
     width: 100%;
