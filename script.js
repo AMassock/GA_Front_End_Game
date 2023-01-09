@@ -46,7 +46,10 @@ let myQuestions = [{
 }, {
     question: "what time is it",
     answers:{
-        a: "1"
+        a: "1",
+        b: "2",
+        c: "3",
+        d: "4"
     }
 }, {
     question: "when",
@@ -71,7 +74,6 @@ cont.addEventListener('click', function(e) {
 
 
 function createQuestion() {
-    
     for(let i = iter; i < myQuestions.length; i++) {
        let question = document.getElementById('question').innerHTML = (myQuestions[i].question);
        createAnswers(question);
@@ -84,46 +86,16 @@ function createAnswers(question) {
     let childBtns = btns[0].children;
     let ans = myQuestions[iter].answers
 
-    for(let i = 0; i < childBtns.length; i++) {
-        let btn = childBtns[i]
-        // console.log(btn);
-        // btn.forEach()
-    }
+    let opts = new Array();
     
     for(const [key, value] of Object.entries(ans)) {
-        let opts = [value];
-        console.log(opts.length);
-        // btn.forEach(element) => {
-        // console.log(typeof opts, opts);
-        // Array.prototype.forEach.call(ans, (x) => console.log(typeof x))
-
+        opts.push(value);
     }
-    // let childBtns = btns[0].children;
-    // // console.log(childBtns);
 
-    // for(let i = 0; i < childBtns.length; i++) {
-    //     // let childBtns = btns[i].children;
-    //     console.log(childBtns);
-
-    //         for(let j = 0; j < childBtns.length; j++) {
-    //             for(const [key, value] of Object.entries(myQuestions[j].answers)) {
-    //                 let answer = value;
-                    
-    //                 while(j <= 4) {
-    //                     childBtns[j].innerHTML = answer;
-    //                     console.log(answer);
-    //                     j++
-    //                 }
-                
-    //         }
-    // }
-
-    //     // btns.forEach(element => console.log(element));
-        
-    //     // console.log(childBtns);
-    // }
-}
-
+    for(let i = 0; i < opts.length; i++) {
+        childBtns[i].innerHTML = (opts[i]);
+    }
+};
 
 // Thought process on questions
 // Create function to replace question and answer text
