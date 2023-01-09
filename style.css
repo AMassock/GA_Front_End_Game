@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 html {
     background: url(img/bg.jpeg) no-repeat;
@@ -88,13 +88,27 @@ button {
 }
 
 .answers button {
-    height: 50px;
+    height: 55px;
     margin: 10px;
-
+    font-size: 26px;
+    padding: 10px;
 }
 
 .submit {
     display: none;
+}
+
+.submit button {
+    display: grid;
+    grid-template-areas: 
+    "a b";
+    width: 432px;
+    height: 55px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 25px;
+    font-size: 26px;
+    text-justify: auto;
 }
 
 .selected {

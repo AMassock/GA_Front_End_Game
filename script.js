@@ -31,7 +31,6 @@ reset.addEventListener('click', function(e) {
     hello.style.display = 'none';
 })
 
-let userAnswer = '';
 let numCorrect = 0;
 
 let myQuestions = [{
@@ -42,20 +41,25 @@ let myQuestions = [{
         c: "It's Clafairy", 
         d: "Who's Ash?"
     },
-    correct: 'a'
+    correct: "Yes"
 }, {
-    question: "what time is it",
+    question: "Pokemon is an abbreviation of Poketto Monsutā. What does this mean in Japanese?",
     answers:{
-        a: "1",
-        b: "2",
-        c: "3",
-        d: "4"
-    }
+        a: "Pocket gremlins",
+        b: "Pocket monsters.",
+        c: "Pocket sand",
+        d: "Small animal"
+    },
+    correct: "Pocket monsters."
 }, {
-    question: "when",
+    question: "How many cards have been sold by the Pokémon Trading Card Game?",
     answers: {
-        a: "nope"
-    }
+        a: "14.2 Billion",
+        b: "400 Million",
+        c: "12 Thousand",
+        d: "43.2 Billion"
+    },
+    correct: "43.2 Billion"
 }]
 
 function returnUsr() {
@@ -75,7 +79,8 @@ cont.addEventListener('click', function(e) {
     btnTwo.classList.remove('selected');
     btnThree.classList.remove('selected');
     btnFour.classList.remove('selected');
-    createQuestion(iter++)
+    submitAns(userAnswer);
+    createQuestion(iter++);
 });
 
 rstAns.addEventListener('click', function() {
@@ -88,6 +93,13 @@ rstAns.addEventListener('click', function() {
 
 function createQuestion() {
     for(let i = iter; i < myQuestions.length; i++) {
+        if(i == myQuestions.length) {
+            form.style.setProperty('display', 'initial');
+            hello.style.display = 'none';
+            questSection.style.display = 'none';
+            ans.style.display = 'none';
+            subBtn.style.display = 'none';
+        }
        let question = document.getElementById('question').innerHTML = (myQuestions[i].question);
        createAnswers(question);
        return question
@@ -110,45 +122,70 @@ function createAnswers(question) {
     }
 };
 
+function choosenAns(b) {
+    if(btnOne.classList.contains('selected')) {
+        userAnswer = myQuestions[iter].answers.a;
+        console.log('btn one clicked');
+    }
+    if(btnTwo.classList.contains('selected')) {
+        userAnswer = myQuestions[iter].answers.b;
+        console.log('btn two clicked');
+    }
+    if(btnThree.classList.contains('selected')) {
+        userAnswer = myQuestions[iter].answers.c;
+        console.log('btn three clicked');
+    }
+    if(btnFour.classList.contains('selected')) {
+        userAnswer = myQuestions[iter].answers.d;
+        console.log('btn four clicked');
+    }
+}
+
+let userAnswer = '';
+
 const btnOne = document.getElementById('one');
 const btnTwo = document.getElementById('two');
 const btnThree = document.getElementById('three');
 const btnFour = document.getElementById('four');
 
-let selected = '';
-
-btnOne.addEventListener('click', function() {
+btnOne.addEventListener('click', function(e) {
+    e.preventDefault();
     btnOne.classList.add('selected');
-    let correctAns = myQuestions[iter].answers.a;
-    return correctAns
-    console.log(selected);
+    choosenAns(btnOne);
 });
 
-btnTwo.addEventListener('click', function() {
+btnTwo.addEventListener('click', function(userAnswer) {
     btnTwo.classList.add('selected');
-    let correctAns = myQuestions[iter].answers.b;
-    return correctAns
-    console.log(selected);
+    choosenAns(btnTwo);
+    // userAnswer = myQuestions[iter].answers.b;
+    // return userAnswer
+    // console.log(selectedAns);
 });
 
-btnThree.addEventListener('click', function() {
+btnThree.addEventListener('click', function(userAnswer) {
     btnThree.classList.add('selected');
-    let correctAns = myQuestions[iter].answers.c;
-    return correctAns
-    console.log(selected);
+    choosenAns(btnThree);
+    // userAnswer = myQuestions[iter].answers.c;
+    // return userAnswer
+    // console.log(selectedAns);
 });
 
-btnFour.addEventListener('click', function() {
+btnFour.addEventListener('click', function(userAnswer) {
     btnFour.classList.add('selected');
-    let correctAns = myQuestions[iter].answers.d;
-    return correctAns
-    console.log(selected);
+    choosenAns(btnFour);
+    // userAnswer = myQuestions[iter].answers.d;
+    // return userAnswer
+    // console.log(selectedAns);
 });
+
 
 // todo: add condition to determine if answer is correct
-if(correctAns === myQuestions[iter].correct) {
-    numCorrect++
-    console.log(numCorrect);
+function submitAns(userAnswer) {
+    if(userAnswer === myQuestions[iter].correct) {
+        numCorrect++
+        console.log(numCorrect);
+    }
 }
+
 
 // todo: if correct update score
