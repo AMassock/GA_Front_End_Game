@@ -1,12 +1,12 @@
-let subUsr = document.getElementById('usr');
-let form = document.querySelector('form');
-let ans = document.querySelector('.answers');
-let subBtn = document.querySelector('.submit');
-let questSection = document.querySelector('.questions');
-let hello = document.querySelector('.hello');
-let startBtn = document.getElementById('start');
+const subUsr = document.getElementById('usr');
+const form = document.querySelector('form');
+const ans = document.querySelector('.answers');
+const subBtn = document.querySelector('.submit');
+const questSection = document.querySelector('.questions');
+const hello = document.querySelector('.hello');
+const startBtn = document.getElementById('start');
 let usr = localStorage.getItem('input');
-let reset = document.getElementById('reset');
+const reset = document.getElementById('reset');
 
 subUsr.addEventListener('click', function(e) {
     e.preventDefault();
@@ -22,7 +22,7 @@ startBtn.addEventListener('click', function(e){
     questSection.style.display = 'block';
     ans.style.display = 'grid';
     subBtn.style.display = 'inline';
-    createQuestion();
+    createQuestion();    
 });
 
 reset.addEventListener('click', function(e) {
@@ -65,11 +65,24 @@ function returnUsr() {
 }
 
 let cont = document.getElementById('continue');
+const rstAns = document.getElementById('rstAns');
+
 let iter = 0
 
 cont.addEventListener('click', function(e) {
     e.preventDefault();
+    btnOne.classList.remove('selected');
+    btnTwo.classList.remove('selected');
+    btnThree.classList.remove('selected');
+    btnFour.classList.remove('selected');
     createQuestion(iter++)
+});
+
+rstAns.addEventListener('click', function() {
+    btnOne.classList.remove('selected');
+    btnTwo.classList.remove('selected');
+    btnThree.classList.remove('selected');
+    btnFour.classList.remove('selected');
 });
 
 
@@ -97,7 +110,45 @@ function createAnswers(question) {
     }
 };
 
-// Thought process on questions
-// Create function to replace question and answer text
-// Create function that moves to the next question in the list
-// and replaces text (call back to replace function)
+const btnOne = document.getElementById('one');
+const btnTwo = document.getElementById('two');
+const btnThree = document.getElementById('three');
+const btnFour = document.getElementById('four');
+
+let selected = '';
+
+btnOne.addEventListener('click', function() {
+    btnOne.classList.add('selected');
+    let correctAns = myQuestions[iter].answers.a;
+    return correctAns
+    console.log(selected);
+});
+
+btnTwo.addEventListener('click', function() {
+    btnTwo.classList.add('selected');
+    let correctAns = myQuestions[iter].answers.b;
+    return correctAns
+    console.log(selected);
+});
+
+btnThree.addEventListener('click', function() {
+    btnThree.classList.add('selected');
+    let correctAns = myQuestions[iter].answers.c;
+    return correctAns
+    console.log(selected);
+});
+
+btnFour.addEventListener('click', function() {
+    btnFour.classList.add('selected');
+    let correctAns = myQuestions[iter].answers.d;
+    return correctAns
+    console.log(selected);
+});
+
+// todo: add condition to determine if answer is correct
+if(correctAns === myQuestions[iter].correct) {
+    numCorrect++
+    console.log(numCorrect);
+}
+
+// todo: if correct update score
