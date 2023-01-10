@@ -68,6 +68,16 @@ button {
     border-radius: 5px;
 }
 
+input {
+    width: 432px;
+    height: 55px;
+}
+
+#usr {
+    width: 215px;
+    height: 55px;
+}
+
 .hello {
     display: none;
 }
